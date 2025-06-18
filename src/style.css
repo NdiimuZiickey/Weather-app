@@ -1,17 +1,27 @@
+/* Base styling */
 body {
-  background-color: #f9f7fe;
+  background-image: url(https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?w=1200&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2t5fGVufDB8fDB8fHww);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 a {
   color: #885df1;
 }
 
+/* Weather App Container */
 .weather-app {
-  background: white;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
   max-width: 600px;
   margin: 45px auto;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
@@ -21,6 +31,7 @@ a {
   overflow-x: hidden;
 }
 
+/* Header and Form */
 header {
   border-bottom: 1px solid #f9f7fe;
   padding: 0 0 30px 0;
@@ -46,6 +57,7 @@ header {
   color: white;
 }
 
+/* Main Weather Data Section */
 main {
   padding: 30px 0;
 }
@@ -95,6 +107,7 @@ main {
   font-size: 28px;
 }
 
+/* Forecast Styling */
 .weather-forecast {
   display: flex;
   justify-content: space-around;
@@ -103,8 +116,11 @@ main {
   gap: 15px;
 }
 
-.weather-forecast-date {
+.weather-forecast-day {
   text-align: center;
+}
+
+.weather-forecast-date {
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
   line-height: 20px;
@@ -130,6 +146,7 @@ main {
   padding: 0 10px;
 }
 
+/* Footer */
 footer {
   border-top: 1px solid #f9f7fe;
   padding: 30px 0 0 0;
@@ -141,7 +158,6 @@ footer {
 /* ============================
    Responsive Fixes for Small Screens
 ============================ */
-
 @media (max-width: 500px) {
   .search-form-input {
     width: 100%;
