@@ -18,28 +18,30 @@ function refreshWeather(response) {
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 
-  function formatDate(date) {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const dayName = days[date.getDay()];
+  getForecast(response.data.city);
+}
 
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "PM" : "AM";
+function formatDate(date) {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayName = days[date.getDay()];
 
-    // Convert to 12-hour format
-    hours = hours % 12 || 12;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
 
-    return `${dayName} • ${hours}:${minutes} ${ampm}`;
-  }
+  // Convert to 12-hour format
+  hours = hours % 12 || 12;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  return `${dayName} • ${hours}:${minutes} ${ampm}`;
 }
 
 function searchCity(city) {
@@ -54,8 +56,14 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
-  
+function getForecast(city) {
+  let apiKey = "9f095a90fd43bd5feo73at306afd4f2a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
 
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = "";
@@ -83,4 +91,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Midrand");
-displayForecast();
