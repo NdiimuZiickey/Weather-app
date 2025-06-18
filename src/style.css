@@ -7,11 +7,13 @@ body {
   background-attachment: fixed;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 a {
