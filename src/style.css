@@ -39,13 +39,25 @@ header {
   padding: 0 0 30px 0;
 }
 
+/* Inline and responsive form layout */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .search-form-input {
   background-color: #f9f7fe;
   border: none;
   border-radius: 6px;
-  width: 80%;
+  flex: 1 1 60%;
+  min-width: 200px;
   font-size: 16px;
   padding: 15px 20px;
+  box-sizing: border-box;
 }
 
 .search-form-button {
@@ -53,10 +65,12 @@ header {
   padding: 15px 30px;
   border: none;
   font-size: 16px;
-  margin-top: 5px;
-  margin-left: 5px;
-  border-radius: 6px;
   color: white;
+  border-radius: 6px;
+  flex: 0 0 auto;
+  min-width: 100px;
+  box-sizing: border-box;
+  margin-top: 0;
 }
 
 /* Main Weather Data Section */
@@ -161,14 +175,19 @@ footer {
    Responsive Fixes for Small Screens
 ============================ */
 @media (max-width: 500px) {
-  .search-form-input {
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-form-input,
+  .search-form-button {
     width: 100%;
-    margin-bottom: 10px;
   }
 
   .search-form-button {
-    width: 100%;
     margin-left: 0;
+    margin-top: 5px;
   }
 
   .weather-app-temperature {
